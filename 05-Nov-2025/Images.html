@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Display Demo</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Different Ways to Display Images in HTML</h1>
+
+      <!-- Image from the web (using absolute URL) -->
+
+      <div class="image-demo">
+        <h2>1. Image from the Web (Absolute URL)</h2>
+        <img
+          src="https://picsum.photos/400/300"
+          alt="Random image from Lorem Picsum"
+          title="Hover to see this tooltip!"
+        />
+        <p class="caption">
+          This image is loaded from Lorem Picsum, a free image service.
+        </p>
+      </div>
+
+      <!-- Local image (using relative path) -->
+
+      <div class="image-demo">
+        <h2>2. Local Image (Relative Path)</h2>
+        <img
+          src="C:\Users\ROHIT\Desktop\Blue and Yellow Illustrative Diwali happy Diwali Card.png"
+          alt="Diwali Greeting Card"
+          title="Happy Diwali Card"
+        />
+        <p class="caption">
+          To make this work, create an 'images' folder and put your image there.
+        </p>
+      </div>
+
+      <!-- Image with specific dimensions -->
+
+      <div class="image-demo">
+        <h2>3. Image with Specific Dimensions</h2>
+        <img
+          src="https://picsum.photos/200/200"
+          alt="Square image"
+          width="200"
+          height="200"
+        />
+        <p class="caption">
+          This image has fixed dimensions of 200x200 pixels.
+        </p>
+      </div>
+
+      <!-- Image as a link -->
+      <div class="image-demo">
+        <h2>4. Image as a Link</h2>
+        <a href="https://www.example.com">
+          <img
+            src="https://picsum.photos/300/200"
+            alt="Clickable image"
+            title="Click me to visit example.com"
+          />
+        </a>
+        <p class="caption">This image is clickable and works as a link.</p>
+      </div>
+
+      <!-- Background image example -->
+      <div class="image-demo">
+        <h2>5. Background Image Example</h2>
+        <div
+          style="
+            height: 200px;
+            background-image: url('https://picsum.photos/800/400');
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+          "
+        ></div>
+        <p class="caption">This is a background image applied using CSS.</p>
+      </div>
+
+      <!-- Image with figure and figcaption -->
+      <div class="image-demo">
+        <h2>6. Image with Figure and Caption</h2>
+        <figure>
+          <img
+            src="https://picsum.photos/400/250"
+            alt="Random image with semantic caption"
+          />
+          <figcaption>
+            This caption uses the semantic figcaption element.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </body>
+</html>
