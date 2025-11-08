@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Employee Feedback Form</title>
+  <style>
+    :root{
+      --card-bg: #fff;
+      --page-bg: #f4f6f7;
+      --accent: #0a84d8;
+      --muted: #6b6b6b;
+      --radius: 8px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:var(--page-bg);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+    }
+
+    .card{
+      width:420px;
+      background:var(--card-bg);
+      border-radius:12px;
+      box-shadow:0 8px 22px rgba(20,20,20,0.12);
+      padding:32px 36px 40px;
+      box-sizing:border-box;
+    }
+
+    h1{
+      margin:0 0 18px 0;
+      text-align:center;
+      font-size:28px;
+      color:#111;
+      letter-spacing:0.2px;
+    }
+
+    form{display:block}
+
+    .field{
+      margin-bottom:14px;
+    }
+
+    label{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:6px;
+      font-weight:600;
+    }
+
+    input[type="text"], input[type="email"], select, textarea{
+      width:100%;
+      padding:10px 12px;
+      border-radius:6px;
+      border:1px solid #d9d9d9;
+      font-size:14px;
+      box-sizing:border-box;
+      outline:none;
+      transition:box-shadow .15s, border-color .12s;
+      background:#fff;
+    }
+
+    input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus{
+      border-color: rgba(10,132,216,0.9);
+      box-shadow:0 0 0 4px rgba(10,132,216,0.08);
+    }
+
+    select{height:36px}
+
+    textarea{
+      min-height:90px;
+      resize:vertical;
+      padding-top:10px;
+    }
+
+    .submit-wrap{
+      text-align:center;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:9px 26px;
+      font-size:15px;
+      border-radius:6px;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(10,132,216,0.22);
+    }
+
+    /* small form helper to make first input show subtle blue background like screenshot */
+    input[type="email"]{background:#f1f8ff}
+
+    /* subtle left column alignment for labels */
+    .two-col{display:flex;gap:12px}
+    .two-col .field{flex:1}
+
+    /* small rounded card border like screenshot */
+    .card{border:1px solid rgba(0,0,0,0.04)}
+
+    /* make placeholders slightly darker */
+    ::placeholder{color:#b7b7b7}
+
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Employee Feedback Form</h1>
+    <form>
+      <div class="field">
+        <label for="name">Name:</label>
+        <input id="name" type="text" placeholder="jayanth" />
+      </div>
+
+      <div class="field">
+        <label for="email">Email:</label>
+        <input id="email" type="email" placeholder="jayanth@faceprep.in" />
+      </div>
+
+      <div class="field">
+        <label for="dept">Department:</label>
+        <input id="dept" type="text" placeholder="Training" />
+      </div>
+
+      <div class="field">
+        <label for="role">Role/Position:</label>
+        <input id="role" type="text" placeholder="Trainer" />
+      </div>
+
+      <div class="field">
+        <label for="exp">Overall Experience:</label>
+        <select id="exp">
+          <option>Select</option>
+          <option>Excellent</option>
+          <option>Good</option>
+          <option>Average</option>
+          <option>Poor</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="fb">Feedback:</label>
+        <textarea id="fb" placeholder=""></textarea>
+      </div>
+
+      <div class="submit-wrap">
+        <button class="btn" type="button">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
