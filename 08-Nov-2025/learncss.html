@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .class1 {
+        border: 5px dotted black;
+        margin-top: 100px;
+        margin-bottom: 5px;
+        margin-right: 450px;
+        margin-left: 800px;
+        background-color: lightgreen;
+      }
+      div {
+        border: 1px solid black;
+        margin: 25px 50px 75px 100px;
+        background-color: lightblue;
+        padding-left: 80px;
+        padding-bottom: 50px;
+        padding-right: 30px;
+        padding-top: 100px;
+      }
+      div {
+        width: 300px;
+        margin: auto;
+        border: 1px solid red;
+      }
+      p.ex1 {
+        margin-left: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <center><h2>Using individual margin properties</h2></center>
+
+    <div class="class1">
+      This div element has a top margin of 100px, a right margin of 150px, a
+      bottom margin of 100px, and a left margin of 80px.
+    </div>
+    <div>
+      This div element has a top margin of 100px, a right margin of 150px, a
+      bottom margin of 100px, and a left margin of 80px.
+    </div>
+    <div>
+      <p class="ex1">Inheriting left margin</p>
+    </div>
+  </body>
+</html>
