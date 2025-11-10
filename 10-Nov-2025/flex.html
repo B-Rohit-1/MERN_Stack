@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Justify-content Demo</title>
+    <style>
+      .container {
+        display: flex;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        height: 100px;
+        background: #aeedca;
+      }
+      .block {
+        width: 60px;
+        height: 60px;
+        background-color: #4caf50;
+        color: white;
+        line-height: 60px;
+        text-align: center;
+        margin: 5px;
+      }
+      .label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="label">justify-content: center</div>
+    <div class="container" style="justify-content: center">
+      <div class="block">1</div>
+      <div class="block">2</div>
+      <div class="block">3</div>
+    </div>
+
+    <div class="label">justify-content: flex-start (default)</div>
+    <div class="container" style="justify-content: flex-start">
+      <div class="block">1</div>
+      <div class="block">2</div>
+      <div class="block">3</div>
+    </div>
+
+    <div class="label">justify-content: flex-end</div>
+    <div class="container" style="justify-content: flex-end">
+      <div class="block">1</div>
+      <div class="block">2</div>
+      <div class="block">3</div>
+    </div>
+
+    <div class="label">justify-content: space-around</div>
+    <div class="container" style="justify-content: space-around">
+      <div class="block">1</div>
+      <div class="block">2</div>
+      <div class="block">3</div>
+    </div>
+
+    <div class="label">justify-content: space-between</div>
+    <div class="container" style="justify-content: space-between">
+      <div class="block">1</div>
+      <div class="block">2</div>
+      <div class="block">3</div>
+    </div>
+
+    <div class="label">justify-content: space-evenly</div>
+    <div class="container" style="justify-content: space-evenly">
+      <div class="block">1</div>
+      <div class="block">2</div>
+      <div class="block">3</div>
+    </div>
+
+    <h1>align-content: center</h1>
+
+    <p>
+      align-content: center; - The flex lines are packed toward the center of
+      the container:
+    </p>
+
+    <div class="container">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+    </div>
+  </body>
+</html>

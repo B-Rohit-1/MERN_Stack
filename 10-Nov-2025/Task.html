@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flex Layout</title>
+    <style>
+      body {
+        margin: 0;
+        background: #b8dabd;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: 700px;
+        gap: 4px;
+        padding: 4px;
+      }
+      .top-row {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 4px;
+      }
+      .top-block {
+        background: #cb7d77;
+        height: 80px;
+        flex: 1;
+      }
+      .main-area {
+        display: flex;
+        flex: 1;
+        gap: 4px;
+      }
+      .left {
+        background: #818979;
+        flex: 1.3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .center-square {
+        background: #f5e57d;
+        width: 100px;
+        height: 100px;
+      }
+      .right {
+        display: flex;
+        flex-direction: column;
+        flex: 1.1;
+        gap: 4px;
+      }
+      .right-block {
+        background: #8a9d6d;
+        flex: 1;
+        min-height: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-row">
+        <div class="top-block"></div>
+        <div class="top-block"></div>
+        <div class="top-block"></div>
+      </div>
+      <div class="main-area">
+        <div class="left">
+          <div class="center-square"></div>
+        </div>
+        <div class="right">
+          <div class="right-block"></div>
+          <div class="right-block"></div>
+          <div class="right-block"></div>
+          <div class="right-block"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
