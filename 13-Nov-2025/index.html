@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JS Operations: Constants and User Input</title>
+</head>
+<body>
+  <h2>Calculator with Constant Values</h2>
+  <p>Constants: <b>a = 10</b>, <b>b = 5</b></p>
+
+  <button onclick="showResult('+')">Add</button>
+  <button onclick="showResult('-')">Subtract</button>
+  <button onclick="showResult('*')">Multiply</button>
+  <button onclick="showResult('/')">Divide</button>
+
+  <p id="result"></p>
+
+  <hr>
+
+  <h2>Calculator with User Input</h2>
+  <label>Enter value for a: </label>
+  <input type="number" id="userA"><br><br>
+  <label>Enter value for b: </label>
+  <input type="number" id="userB"><br><br>
+
+  <button onclick="userOperation('+')">Add</button>
+  <button onclick="userOperation('-')">Subtract</button>
+  <button onclick="userOperation('*')">Multiply</button>
+  <button onclick="userOperation('/')">Divide</button>
+
+  <p id="userResult"></p>
+
+  <script>
+    /* ----- CONSTANT VALUES SECTION ----- */
+    const a = 10, b = 5;
+
+    function showResult(op) {
+      let result;
+      if (op === '+') result = a + b;
+      else if (op === '-') result = a - b;
+      else if (op === '*') result = a * b;
+      else if (op === '/') result = a / b;
+
+      document.getElementById("result").textContent = `Result of ${a} ${op} ${b} = ${result}`;
+    }
+
+    /* ----- USER INPUT SECTION ----- */
+    function userOperation(op) {
+      const a = parseFloat(document.getElementById("userA").value);
+      const b = parseFloat(document.getElementById("userB").value);
+      let result;
+
+      if (isNaN(a) || isNaN(b)) {
+        document.getElementById("userResult").textContent = "⚠️ Please enter valid numbers.";
+        return;
+      }
+
+      if (op === '+') result = a + b;
+      else if (op === '-') result = a - b;
+      else if (op === '*') result = a * b;
+      else if (op === '/') result = b !== 0 ? a / b : "∞ (division by zero)";
+
+      document.getElementById("userResult").textContent = `Result of ${a} ${op} ${b} = ${result}`;
+    }
+  </script>
+</body>
+</html>
