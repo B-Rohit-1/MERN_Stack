@@ -1,0 +1,52 @@
+body {
+  background: rgb(255, 194, 194);
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.form-container {
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  width: 300px;
+  border-radius: 10px;
+}
+
+label {
+  display: inline-block;
+  width: 70px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+input {
+  margin-bottom: 10px;
+  width: 160px;
+}
+
+button {
+  background-color: #1847fd;
+  color: white;
+  border: none;
+  padding: 6px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 350px;
+}
+
+th,
+td {
+  border: 1px solid #e5b093;
+  padding: 8px;
+}
+th {
+  background: #ffffff;
+}
+tr:nth-child(even) {
+  background: #fdede2;
+}
