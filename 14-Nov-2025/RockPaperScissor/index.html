@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+
+    <div class="container">
+      <div class="box">
+        <h2>User</h2>
+        <div class="score" id="userScore">Score: 0</div>
+      </div>
+
+      <div class="box">
+        <h2>Computer</h2>
+        <div class="score" id="compScore">Score: 0</div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="choiceBtn" data-choice="R">Rock</button>
+      <button class="choiceBtn" data-choice="P">Paper</button>
+      <button class="choiceBtn" data-choice="S">Scissors</button>
+      <button id="quitBtn" style="background-color: red; margin-left: 60px">
+        Quit
+      </button>
+    </div>
+
+    <div id="message"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

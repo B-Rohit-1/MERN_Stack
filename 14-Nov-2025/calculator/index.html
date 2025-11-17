@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="display" id="display">0</div>
+      <div class="buttons">
+        <div class="numbers">
+          <button onclick="addNum('1')">1</button>
+          <button onclick="addNum('2')">2</button>
+          <button onclick="addNum('3')">3</button>
+          <button onclick="addNum('4')">4</button>
+          <button onclick="addNum('5')">5</button>
+          <button onclick="addNum('6')">6</button>
+          <button onclick="addNum('7')">7</button>
+          <button onclick="addNum('8')">8</button>
+          <button onclick="addNum('9')">9</button>
+          <button onclick="addNum('.')" class="decimal">.</button>
+          <button onclick="addNum('0')">0</button>
+          <button class="equals" onclick="calc()">=</button>
+        </div>
+        <div class="operators">
+          <button class="operator" onclick="appendOp('+')">+</button>
+          <button class="operator" onclick="appendOp('-')">-</button>
+          <button class="operator" onclick="appendOp('*')">*</button>
+          <button class="operator" onclick="appendOp('/')">/</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
