@@ -1,0 +1,63 @@
+Test
+
+1. Find all products that have a price greater than ($gt) $100 but less than or equal to ($lte) $500.
+
+db.products.find({
+  price: { $gt: 100, $lte: 500 }
+});
+
+
+
+2. Retrieve products that are in the "Apparel" category OR ($or) have a stock quantity less than 5.
+
+db.products.find({
+  $or: [
+    { category: "Apparel" },
+    { stock: { $lt: 5 } }
+  ]
+});
+
+
+
+3.  Find documents where the details.color field does not exist ($exists: false).
+
+db.products.find({
+  "details.color": { $exists: false }
+});
+
+
+
+4.Find products whose tags array contains both "New" AND "Premium" (using a comma-separated list in the query document).
+
+db.products.find({
+  tags: { $all: ["New", "Premium"] }
+});
+
+
+
+5.Find products where at least one review has a rating less than 3 AND the review date is before 2025-10-01 (using $elemMatch).
+
+db.products.find({
+  reviews: {
+    $elemMatch: {
+      rating: { $lt: 3 },
+      date: { $lt: ISODate("2025-10-01T00:00:00Z") }
+    }
+  }
+});
+
+6. Find all products with a price less than $100, and sort ($sort) the results by name in descending order (Z to A).
+
+db.products.find({
+  price: { $lt: 100 }
+}).sort({ name: -1 });
+
+
+7. Retrieve the 3 cheapest products across the entire collection.
+
+db.products.find().sort({ price: 1 }).limit(3);
+
+
+
+
+
