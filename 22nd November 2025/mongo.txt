@@ -1,0 +1,90 @@
+1. 
+db.products.find({
+  price: { $gt: 100, $lte: 500 }
+});
+
+2. 
+db.products.find({
+  $or: [
+    { category: "Apparel" },
+    { stock: { $lt: 5 } }
+  ]
+});
+
+3. 
+db.products.find({
+  "details.color": { $exists: false }
+});
+
+4.
+db.products.find({
+  tags: { $all: ["New", "Premium"] }
+});
+
+5.
+db.products.find({
+  reviews: {
+    $elemMatch: {
+      rating: { $lt: 3 },
+      date: { $lt: ISODate("2025-10-01T00:00:00Z") }
+    }
+  }
+});
+
+6.
+db.products.find(
+  { price: { $lt: 100 } }
+).sort(
+  { name: -1 }
+);
+
+7.
+db.products.find().sort({ price: 1 }).limit(3);
+
+8.
+db.products.updateOne(
+  { name: "Ultimate Laptop Pro" },
+  {
+    $inc: { stock: -1 },
+    $set: { "details.brand": "TechCo Elite" }
+  }
+);
+
+9. 
+db.products.updateOne(
+  { name: "Adventure Backpack" },
+  { $addToSet: { tags: "Sale" } }
+);
+
+10. 
+db.products.updateMany(
+  {},
+  { $pull: { tags: "Sale" } }
+);
+
+11.
+db.products.aggregate([
+  {
+    $group: {
+      _id: "$category",
+      totalInventoryValue: {
+        $sum: {
+          $multiply: ["$price", "$stock"]
+        }
+      }
+    }
+  }
+]);
+
+12.
+db.products.aggregate([
+  {
+    $group: {
+      _id: "$details.brand",
+      productCount: { $sum: 1 }
+    }
+  }
+]);
+
+
+
