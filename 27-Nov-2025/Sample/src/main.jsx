@@ -1,48 +1,37 @@
+import { useState, createContext, useContext } from "react";
 import { createRoot } from "react-dom/client";
-import { useState, useTransition } from "react";
 
-function SearchResults({ query }) {
-  // Simulate slow search results
-  const items = [];
-  if (query) {
-    for (let i = 0; i < 1000; i++) {
-      items.push(
-        <li key={i}>
-          Result for {query} - {i}
-        </li>
-      );
-    }
-  }
-  return <ul>{items}</ul>;
-}
+const UserContext = createContext();
 
-function App() {
-  const [input, setInput] = useState("");
-  const [query, setQuery] = useState("");
-  const [isPending, startTransition] = useTransition();
-
-  const handleChange = (e) => {
-    // Urgent: Update input field
-    setInput(e.target.value);
-
-    // Non-urgent: Update search results
-    startTransition(() => {
-      setQuery(e.target.value);
-    });
-  };
+function Component1() {
+  const [user, setUser] = useState("Rohit");
 
   return (
-    <div>
-      <input
-        type="text"
-        value={input}
-        onChange={handleChange}
-        placeholder="Type to search..."
-      />
-      {isPending && <p>Loading results...</p>}
-      <SearchResults query={query} />
-    </div>
+    <UserContext.Provider value={user}>
+      <h1>{`Hello ${user}!`}</h1>
+      <Component2 />
+    </UserContext.Provider>
   );
 }
 
-createRoot(document.getElementById("root")).render(<App />);
+function Component2() {
+  return (
+    <>
+      <h1>Component 2</h1>
+      <Component3 />
+    </>
+  );
+}
+
+function Component3() {
+  const user = useContext(UserContext);
+
+  return (
+    <>
+      <h1>Component 3</h1>
+      <h2>{`Hello ${user} again!`}</h2>
+    </>
+  );
+}
+
+createRoot(document.getElementById("root")).render(<Component1 />);
