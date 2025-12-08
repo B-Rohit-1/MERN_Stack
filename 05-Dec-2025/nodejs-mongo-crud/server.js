@@ -4,31 +4,85 @@ const mongoose = require("mongoose");
 const app = express();
 const port = 3000;
 
-// Middleware to parse JSON requests
 app.use(express.json());
 
-// 1. Define your MongoDB Connection String (Replace <database-name> with your desired name)
+// MongoDB connection string
 const MONGO_URI = "mongodb://localhost:27017/Rohit-CRUD";
 
-// 2. Connect to MongoDB
 mongoose
   .connect(MONGO_URI)
   .then(() => {
     console.log("Connected successfully to MongoDB");
-    // Start the Express server only after the database connection is successful
-    // ... (in server.js, before app.listen)
-    const Item = require("./models/itemModel"); // Import the model
 
-    // Create a new Item
+    // Import model
+    const Item = require("./models/itemModel");
+
     app.post("/api/items", async (req, res) => {
       try {
-        const newItem = new Item(req.body); // req.body contains the JSON data
+        const newItem = new Item(req.body);
         const savedItem = await newItem.save();
         res.status(201).json(savedItem);
       } catch (error) {
         res.status(400).json({ message: error.message });
       }
     });
+
+    app.get("/api/items", async (req, res) => {
+      try {
+        const items = await Item.find();
+        res.status(200).json(items);
+      } catch (error) {
+        res.status(500).json({ message: error.message });
+      }
+    });
+
+    app.get("/api/items/:id", async (req, res) => {
+      try {
+        const item = await Item.findById(req.params.id);
+        if (!item) {
+          return res.status(404).json({ message: "Item not found" });
+        }
+        res.status(200).json(item);
+      } catch (error) {
+        res.status(500).json({ message: error.message });
+      }
+    });
+
+    app.patch("/api/items/:id", async (req, res) => {
+      try {
+        const updatedItem = await Item.findByIdAndUpdate(
+          req.params.id,
+          req.body,
+          { new: true, runValidators: true } // returns updated document
+        );
+
+        if (!updatedItem) {
+          return res.status(404).json({ message: "Item not found" });
+        }
+
+        res.status(200).json(updatedItem);
+      } catch (error) {
+        res.status(400).json({ message: error.message });
+      }
+    });
+
+    app.delete("/api/items/:id", async (req, res) => {
+      try {
+        const deletedItem = await Item.findByIdAndDelete(req.params.id);
+
+        if (!deletedItem) {
+          return res.status(404).json({ message: "Item not found" });
+        }
+
+        res.status(200).json({ message: "Item deleted successfully" });
+      } catch (error) {
+        res.status(500).json({ message: error.message });
+      }
+    });
+
+    // -------------------------
+    // Start server after DB connects
+    // -------------------------
     app.listen(port, () => {
       console.log(`Server running on port ${port}`);
     });
@@ -36,6 +90,3 @@ mongoose
   .catch((error) => {
     console.log("Connection failed:", error.message);
   });
-
-// You will add the CRUD logic and routes here later
-// ...
